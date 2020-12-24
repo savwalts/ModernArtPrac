@@ -1,0 +1,25 @@
+<html>
+  <head>
+<style>
+
+</style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+  </head>
+  <body>
+    <h1>Harvard Museum Modern Art Collection</h1>
+    <div id='pager'></div>
+    <div id='results'></div>
+<script>
+    const API_KEY= 'dde64584-d2b0-484d-947f-9fe1a832651c';
+    const BASE_URL = `https://api.harvardartmuseums.org/object?apikey=${ API_KEY }&hasimage=1&period=Modern&sort=id&size=50`;
+
+    async function fetchData(){
+        $('#pager').empty();
+        $('#results').empty();
+        const pageNumber = window.location.hash.slice(1) || 1;
+        const pageIndex = pageNumber -1;
+        const response = await fetch(`${ BASE_URL }/users/${ pageIndex }`);
+    }
+</script>
+  </body>
+</html>
